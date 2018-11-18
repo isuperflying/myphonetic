@@ -1,0 +1,69 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">元音</view>
+  <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">辅音</view>
+</view>
+
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper-item>
+    <view class='group1'>
+      <view class='group1-name'>单元音</view>
+      <view class='group1-wrapper'>
+        <view class='group1-subset'>
+          <view class='group1-subset-name'>前元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+        <view class='group1-subset'>
+          <view class='group1-subset-name'>中元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+        <view class='group1-subset' style='border-bottom:0rpx;'>
+          <view class='group1-subset-name'>后元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class='group1'>
+      <view class='group1-name'>单元音</view>
+      <view class='group1-wrapper'>
+        <view class='group1-subset'>
+          <view class='group1-subset-name'>前元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+        <view class='group1-subset'>
+          <view class='group1-subset-name'>中元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+        <view class='group1-subset' style='border-bottom:0rpx;'>
+          <view class='group1-subset-name'>后元音</view>
+          <view class='group1-subset-list'>
+            <view wx:for='{{testList}}' wx:key='id' class='phonetic-item'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

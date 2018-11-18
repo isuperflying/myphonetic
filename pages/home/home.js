@@ -1,69 +1,47 @@
-var baseUrl = 'http://192.168.80.97:8888/'
+
+var baseUrl = 'https://www.antleague.com/'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    base_img_url: baseUrl + 'words/',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '音标小课堂',
+    })
+
+    var that = this
+    let url = baseUrl + 'querywords'
     wx.request({
-      url: baseUrl + 'letterlist',
+      url: url,
+      data: {
+        'cid': 7
+      },
       method: 'POST',
-      data: {},
       success: function (result) {
-        console.log(result.data)
+        console.log(result.data.data)
+        //words = result.data.data
+        that.setData({
+          words: result.data.data
+        })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  basetrain: function () {
+    wx.navigateTo({
+      url: '/pages/wordtype/wordtype',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
   /**
    * 用户点击右上角分享
    */
