@@ -1,6 +1,6 @@
 var app = getApp()
 
-var baseUrl = 'http://192.168.80.97:8888/'
+var baseUrl = 'http://192.168.1.104:8888/'
 
 Page({
   data: {
@@ -8,6 +8,9 @@ Page({
     testList: [{ name: 'a' }, { name: 'b' }, { name: 'c' }, { name: 'd' }]
   },
   onLoad: function(options) {
+    wx.setNavigationBarTitle({
+      title: '音标学习',
+    })
     var that = this
     let url = baseUrl + 'phoneticlist'
     wx.request({
@@ -25,7 +28,7 @@ Page({
   swiperTab: function(e) {
     var that = this;
     that.setData({
-      currentTba: e.detail.current
+      currentTab: e.detail.current
     });
   },
   //点击切换
