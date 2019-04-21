@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/phonetic/phonetic",
     "pages/home/home",
-    
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/order/order"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#79ddd5",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#79ceff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"white"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }

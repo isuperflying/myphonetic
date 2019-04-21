@@ -1,7 +1,7 @@
 page {
   width: 100%;
   height: 100%;
-  background: #79ddd5;
+  background: #79ceff;
 }
 
 scroll-view {
@@ -18,7 +18,7 @@ swiper {
 .tab-wrapper {
   width: 100%;
   height: 112rpx;
-  background: #79ddd5;
+  background: #79ceff;
   position: fixed;
   left: 0;
   top: 0;
@@ -50,13 +50,13 @@ swiper {
 }
 
 .group1 {
-  width: 90%;
+  width: 94%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border: 1rpx solid #42bfcc;
-  margin-left: 5%;
+  margin-left: 3%;
   background: #42bfcc;
   border-radius: 10rpx;
   margin-bottom: 36rpx;
@@ -106,7 +106,7 @@ swiper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .phonetic-item {
@@ -115,9 +115,9 @@ swiper {
   line-height: 80rpx;
   background: #e6faec;
   color: #a55f5f;
-  font-size: 24rpx;
+  font-size: 28rpx;
   text-align: center;
-  margin-left:20rpx;
+  margin-left:12rpx;
   border-radius: 6rpx;
 }
 

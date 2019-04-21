@@ -1,13 +1,14 @@
-
+// pages/order/order.js
 var baseUrl = 'https://www.antleague.com/'
-
+var current_page = 1;
+let list;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    base_img_url: baseUrl + 'words/',
+
   },
 
   /**
@@ -15,33 +16,45 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '音标小课堂',
+      title: '我的订单',
     })
 
+    this.loadData();
+  },
+
+  loadData:function(){
     var that = this
     let url = baseUrl + 'aqueryorders'
     wx.request({
       url: url,
       data: {
-        'page': 1
+        'page': current_page
       },
       method: 'POST',
       success: function (result) {
         console.log(result.data.data)
-        //words = result.data.data
+        
+        if (list == null) {
+          list = result.data.data
+        } else {
+          list = list.concat(result.data.data)
+        }
+
         that.setData({
-          words: result.data.data
-        })
+          orders: list
+        })        
       }
     })
-
   },
 
-  basetrain: function () {
-    wx.navigateTo({
-      url: '/pages/wordtype/wordtype',
-    })
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    current_page++;
+    this.loadData();
   },
+
   /**
    * 用户点击右上角分享
    */
