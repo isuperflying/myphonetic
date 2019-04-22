@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/phonetic/phonetic",
+    "pages/read/read",
+    "pages/example/example",
     "pages/home/home",
     "pages/logs/logs",
     "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#79ceff",
+    "navigationBarBackgroundColor": "#50c8fd",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
   },

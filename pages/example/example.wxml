@@ -1,0 +1,21 @@
+<!--pages/read/read.wxml-->
+<view class='content-view'>
+  <view class='read-wrapper'>
+      <view class='read-info'>
+        <text class='phonetic-type'>{{item.pro_instance}}</text>
+        <text class='phonetic-value'>{{item.pro_instance_ipa}}</text>
+      </view>
+      <view class='cn-word'><text class='cn-word-txt'>{{item.pro_instance_cn}}</text></view>
+      <view class='read-play'>
+        <image class='play-btn' src='{{play_img}}' bindtap='playPhonetic' data-mp3='{{item.pro_audio_file}}'></image>
+      </view>
+  </view>
+
+  <view class='example-wrapper'>
+      <image class='example-img' src='{{example_img}}'></image>
+  </view>
+
+  <view class='next-step'>
+      <text class='next-step-txt' bindtap='preStep' >回首页</text>
+  </view>
+</view>

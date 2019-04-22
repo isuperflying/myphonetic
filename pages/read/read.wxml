@@ -1,0 +1,20 @@
+<!--pages/read/read.wxml-->
+<view class='content-view'>
+  <view class='read-wrapper'>
+      <view class='read-info'>
+        <text class='phonetic-type'>{{item.level_three}}</text>
+        <text class='phonetic-value'>{{item.phonetic_name}}</text>
+      </view>
+      <view class='read-play'>
+        <image class='play-btn' src='{{play_img}}' bindtap='playPhonetic' data-mp3='{{item.pro_audio_file}}'></image>
+      </view>
+  </view>
+
+  <view class='read-hint'>
+    <text class='read-hint-txt'>{{item.pro_guide}}</text>
+  </view>
+
+  <view class='next-step'>
+      <text class='next-step-txt' bindtap='nextStep' data-item='{{item}}'>下一步</text>
+  </view>
+</view>

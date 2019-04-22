@@ -14,9 +14,11 @@
           <view class='group1-subset'>
             <view class='group1-subset-name'>前元音</view>
             <view class='group1-subset-list'>
-              <view wx:for='{{plist1}}' wx:key='id' class='phonetic-item'>
-                {{item.phonetic_name}}
-              </view>
+              <block wx:for='{{plist1}}' wx:key='id'>
+                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                  {{item.phonetic_name}}
+                </view>
+              </block>
             </view>
           </view>
           <view class='group1-subset'>

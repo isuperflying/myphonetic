@@ -1,6 +1,6 @@
 var app = getApp()
 
-var baseUrl = 'http://192.168.0.103:8888/'
+var baseUrl = 'http://192.168.0.104:8888/'
 let plist1 = [];
 let plist2 = [];
 let plist3 = [];
@@ -20,7 +20,24 @@ Page({
   data: {
     currentTab: 0
   },
+  clearData:function(){
+    plist1 = [];
+    plist2 = [];
+    plist3 = [];
+    plist4 = [];
+    plist5 = [];
+    plist6 = [];
+    plist7 = [];
+    plist8 = [];
+    plist9 = [];
+    plist10 = [];
+    plist11 = [];
+    plist12 = [];
+    plist13 = [];
+    plist14 = [];
+  },
   onLoad: function(options) {
+    this.clearData();
     wx.setNavigationBarTitle({
       title: '音标学习',
     })
@@ -122,6 +139,12 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+  },
+  readPhonetic:function (e){
+    //console.log(e.currentTarget.dataset.item)
+    var item = JSON.stringify(e.currentTarget.dataset.item)
+    wx.navigateTo({
+      url: '../read/read?item=' + item,
+    })
   }
-
 })
