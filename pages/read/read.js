@@ -4,7 +4,7 @@ var innerAudioContext
 var vowel_audio_src
 var isPlay = false
 
-var baseUrl = 'http://192.168.0.104:8888/mp3/'
+var baseUrl = 'https://www.antleague.com/'
 Page({
 
   /**
@@ -58,7 +58,7 @@ Page({
   },
 
   playPhonetic: function (e) {
-    var mp3_url = baseUrl + e.currentTarget.dataset.mp3;
+    var mp3_url = baseUrl + 'mp3/' + e.currentTarget.dataset.mp3;
     if (isPlay) {
       this.stopMusic()
     } else {
@@ -113,6 +113,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  }
+    return {
+      title: '英语音标快速学习，快来试试吧!',
+      path: '/pages/phonetic/phonetic',
+      imageUrl: '../../images/share_icon.png'
+    }
+  },
 })

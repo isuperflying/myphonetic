@@ -1,6 +1,7 @@
 var app = getApp()
 
-var baseUrl = 'http://192.168.0.104:8888/'
+var baseUrl = 'https://www.antleague.com/'
+
 let plist1 = [];
 let plist2 = [];
 let plist3 = [];
@@ -18,7 +19,8 @@ let plist14 = [];
 
 Page({
   data: {
-    currentTab: 0
+    currentTab: 0,
+    new_app_id:'wx963826dfb4212295'
   },
   clearData:function(){
     plist1 = [];
@@ -36,6 +38,33 @@ Page({
     plist13 = [];
     plist14 = [];
   },
+
+  compareVersion: function (v1, v2) {
+    v1 = v1.split('.')
+    v2 = v2.split('.')
+    var len = Math.max(v1.length, v2.length)
+
+    while (v1.length < len) {
+      v1.push('0')
+    }
+    while (v2.length < len) {
+      v2.push('0')
+    }
+
+    for (var i = 0; i < len; i++) {
+      var num1 = parseInt(v1[i])
+      var num2 = parseInt(v2[i])
+
+      if (num1 > num2) {
+        return 1
+      } else if (num1 < num2) {
+        return -1
+      }
+    }
+
+    return 0
+  },
+
   onLoad: function(options) {
     this.clearData();
     wx.setNavigationBarTitle({
@@ -119,7 +148,28 @@ Page({
         })
       }
     })
+
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log('sdk version--->' + res.SDKVersion)
+        var result = that.compareVersion(res.SDKVersion, '2.0.7')
+        that.setData({
+          isUse: result >= 0 ? true : false
+        })
+      },
+    })
   },
+
+  newApp: function (e) {
+    if (this.data.isUse) {
+      return;
+    }
+    var that = this
+    wx.navigateToMiniProgram({
+      appId: that.data.new_app_id
+    })
+  },
+
   //滑动切换
   swiperTab: function(e) {
     var that = this;
@@ -146,5 +196,16 @@ Page({
     wx.navigateTo({
       url: '../read/read?item=' + item,
     })
-  }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '英语音标快速学习，快来试试吧!',
+      path: '/pages/phonetic/phonetic',
+      imageUrl: '../../images/share_icon.png'
+    }
+  },
 })

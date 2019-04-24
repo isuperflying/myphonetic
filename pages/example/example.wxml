@@ -2,12 +2,12 @@
 <view class='content-view'>
   <view class='read-wrapper'>
       <view class='read-info'>
-        <text class='phonetic-type'>{{item.pro_instance}}</text>
+        <text class='phonetic-type'>{{result_word}}</text>
         <text class='phonetic-value'>{{item.pro_instance_ipa}}</text>
       </view>
       <view class='cn-word'><text class='cn-word-txt'>{{item.pro_instance_cn}}</text></view>
       <view class='read-play'>
-        <image class='play-btn' src='{{play_img}}' bindtap='playPhonetic' data-mp3='{{item.pro_audio_file}}'></image>
+        <image class='play-btn' src='{{play_img}}' bindtap='playWord' data-word='{{item.pro_instance}}'></image>
       </view>
   </view>
 
@@ -15,7 +15,7 @@
       <image class='example-img' src='{{example_img}}'></image>
   </view>
 
-  <view class='next-step'>
-      <text class='next-step-txt' bindtap='preStep' >回首页</text>
+  <view class='next-step' bindtap='preStep'>
+      <text class='next-step-txt'>回首页</text>
   </view>
 </view>

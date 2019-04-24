@@ -1,12 +1,13 @@
 page {
   width: 100%;
   height: 100%;
-  background: #50c8fd;
+  background: #6ad6ff;
 }
 
 scroll-view {
   width: 100%;
-  height: 120%;
+  height: 150%;
+  margin-bottom: 50rpx;
 }
 
 swiper {
@@ -18,7 +19,7 @@ swiper {
 .tab-wrapper {
   width: 100%;
   height: 112rpx;
-  background: #50c8fd;
+  background: #6ad6ff;
   position: fixed;
   left: 0;
   top: 0;
@@ -28,8 +29,8 @@ swiper {
 .swiper-tab {
   width: 88%;
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 72rpx;
+  line-height: 72rpx;
   margin-left: 6%;
   margin-top: 16rpx;
   margin-bottom: 16rpx;
@@ -55,9 +56,9 @@ swiper {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1rpx solid #42bfcc;
+  border: 5rpx solid #adedff;
   margin-left: 3%;
-  background: #42bfcc;
+  background: #adedff;
   border-radius: 10rpx;
   margin-bottom: 36rpx;
 }
@@ -84,13 +85,13 @@ swiper {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-left: 2rpx solid #fff;
-  border-bottom: 2rpx solid #fff;
+  border-left: 2rpx solid #92e2f8;
+  border-bottom: 2rpx solid #9be0f3;
 }
 
 .group1-subset-name {
   font-size: 24rpx;
-  color: #364242;
+  color: #a55f5f;
   width: 20%;
   text-align: center;
 }
@@ -113,8 +114,8 @@ swiper {
   width: 80rpx;
   height: 80rpx;
   line-height: 80rpx;
-  background: #e6faec;
-  color: #a55f5f;
+  background: #a2dd63;
+  color: #000000;
   font-size: 28rpx;
   text-align: center;
   margin-left:12rpx;
@@ -124,4 +125,29 @@ swiper {
 .line-view {
   width: 100%;
   height: 50rpx;
+}
+
+.group2 {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3%;
+  background: #adedff;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.learn-word {
+  width: 750rpx;
+  height: 260rpx;
+}
+
+.nav-view {
+  width: 750rpx;
+  height: 260rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

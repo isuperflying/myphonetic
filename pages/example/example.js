@@ -4,8 +4,12 @@ var innerAudioContext
 var vowel_audio_src
 var isPlay = false
 
-var baseUrl = 'http://192.168.0.104:8888/mp3/'
-var base_url_img = 'http://192.168.0.104:8888/phonetic/'
+var plugin = requirePlugin("WechatSI")
+let manager = plugin.getRecordRecognitionManager()
+
+var baseUrl = 'https://www.antleague.com/'
+var base_url_img = baseUrl + 'phonetic/'
+
 Page({
 
   /**
@@ -26,7 +30,9 @@ Page({
     })
     var item = JSON.parse(options.item);
     console.log(item)
+    var resultWord = item.pro_instance.replace(/#/g, '')
     this.setData({
+      result_word: resultWord,
       item: item,
       example_img: base_url_img + item.pro_introduce_img
     })
@@ -60,16 +66,33 @@ Page({
 
   },
 
-  playPhonetic: function (e) {
-    var mp3_url = baseUrl + e.currentTarget.dataset.mp3;
-    if (isPlay) {
-      this.stopMusic()
-    } else {
-      this.setData({
-        is_test_result: false,
-        play_img: '/images/stop.png'
+  playWord: function (e) {
+    var word = e.currentTarget.dataset.word;
+    word = word.replace(/#/g, '')
+    console.log("this word--->", word);
+    var that = this
+    if (word){
+      plugin.textToSpeech({
+        lang: "en_US",
+        tts: true,
+        content: word,
+        success: function (res) {
+          console.log("succ tts", res.filename)
+          var mp3_url = res.filename
+          that.setData({
+            play_img: '/images/stop.png'
+          })
+          that.playMusic(mp3_url, false)
+        },
+        fail: function (res) {
+          console.log("fail tts", res)
+        }
       })
-      this.playMusic(mp3_url, false)
+    }else{
+        wx.showToast({
+          title: '拼读错误,请重试',
+          icon:'none'
+        })
     }
   },
 
@@ -115,6 +138,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  }
+    return {
+      title: '英语音标快速学习，快来试试吧!',
+      path: '/pages/phonetic/phonetic',
+      imageUrl: '../../images/share_icon.png'
+    }
+  },
 })

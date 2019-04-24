@@ -9,9 +9,18 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#50c8fd",
+    "navigationBarBackgroundColor": "#6ad6ff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.2.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx963826dfb4212295"
+  ],
   "sitemapLocation": "sitemap.json"
 }

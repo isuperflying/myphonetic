@@ -92,7 +92,7 @@ page {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: #34c096;
+  background: #f5bd44;
   color: #fff;
   border-radius: 40rpx;
 }
