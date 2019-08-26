@@ -1,0 +1,130 @@
+/* pages/read/read.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+.content-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 8px;
+}
+
+.read-wrapper {
+  width: 94%;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36rpx;
+}
+
+.read-info {
+  width: 90%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.phonetic-type {
+  font-size: 60rpx;
+  color: #000000;
+  font-weight: 500;
+  margin-left: 10rpx;
+}
+
+.phonetic-value {
+  font-size: 60rpx;
+  color: #5b3f3a;
+  font-weight: 500;
+  margin-left: 10rpx;
+}
+
+.read-play{
+  width: 94%;
+  height: 100rpx;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.read-hint {
+  width: 100%;
+  height: auto;
+  margin-top: 24rpx;
+}
+
+.read-hint {
+  width: 86%;
+  font-size: 30rpx;
+  color: #5b3f3a;
+  font-weight: 500;
+  padding: 16rpx;
+  line-height: 48rpx;
+  border: 1rpx solid #f2f2f2;
+  background: #f2f2f2;
+  border-radius: 10rpx;
+  word-spacing: 1.2;
+}
+
+.next-step {
+  position: fixed;
+  bottom: 100rpx;
+  left: 7%;
+  width: 86%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #f5bd44;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+.next-step-txt {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 500;
+}
+
+.group2 {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3%;
+  margin-top: 5%;
+  background: #adedff;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.learn-word {
+  width: 750rpx;
+  height: 260rpx;
+}
+
+.nav-view {
+  width: 750rpx;
+  height: 260rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

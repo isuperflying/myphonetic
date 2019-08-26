@@ -1,48 +1,71 @@
 page {
   width: 100%;
   height: 100%;
+  background: #6ad6ff;
+}
+
+scroll-view {
+  width: 100%;
+  height: 150%;
+  margin-bottom: 50rpx;
 }
 
 swiper {
   width: 100%;
   height: 100%;
+  margin-top: 130rpx;
+}
+
+.tab-wrapper {
+  width: 100%;
+  height: 112rpx;
+  background: #6ad6ff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .swiper-tab {
-  width: 96%;
+  width: 88%;
   text-align: center;
-  height: 88rpx;
-  line-height: 88rpx;
-  margin: 2%;
-  background: #a9f5ed;
-  border-radius: 10px;
+  height: 72rpx;
+  line-height: 72rpx;
+  margin-left: 6%;
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+  background: #fff;
+  border-radius: 20px;
 }
 
 .swiper-tab-item {
   display: inline-block;
   width: 50%;
   color: #333;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .active {
   color: #fff;
-  background: #119788;
+  background: #f5bd44;
 }
 
 .group1 {
-  width: 98%;
+  width: 94%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border:1rpx solid #f1f1f1;
-  margin: 1%;
+  border: 5rpx solid #adedff;
+  margin-left: 3%;
+  background: #adedff;
+  border-radius: 10rpx;
+  margin-bottom: 36rpx;
 }
 
 .group1-name {
-  font-size: 36rpx;
-  color: #000;
+  font-size: 32rpx;
+  color: #333;
   width: 20%;
   text-align: center;
 }
@@ -62,13 +85,13 @@ swiper {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-left: 1rpx solid #f1f1f1;
-  border-bottom: 1rpx solid #f1f1f1;
+  border-left: 2rpx solid #92e2f8;
+  border-bottom: 2rpx solid #9be0f3;
 }
 
 .group1-subset-name {
-  font-size: 26rpx;
-  color: #000;
+  font-size: 24rpx;
+  color: #a55f5f;
   width: 20%;
   text-align: center;
 }
@@ -84,16 +107,47 @@ swiper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .phonetic-item {
   width: 80rpx;
   height: 80rpx;
   line-height: 80rpx;
-  background: #119788;
-  color: #fff;
-  font-size: 24rpx;
+  background: #a2dd63;
+  color: #000000;
+  font-size: 28rpx;
   text-align: center;
-  margin-left: 16rpx;
+  margin-left:12rpx;
+  border-radius: 6rpx;
+}
+
+.line-view {
+  width: 100%;
+  height: 50rpx;
+}
+
+.group2 {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3%;
+  background: #adedff;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.learn-word {
+  width: 750rpx;
+  height: 260rpx;
+}
+
+.nav-view {
+  width: 750rpx;
+  height: 260rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

@@ -1,0 +1,26 @@
+<view wx:for='{{orders}}' wx:key='{{id}}' class='order-item'>
+  <view class='top-view'>
+    <view class='left-view'>
+      <image src='{{item.avatarUrl}}' class='head-img'></image>
+      <text>{{item.nickName}}</text>
+    </view>
+    <view class='right-view'>
+      <text class='not-pay' wx:if='{{item.order_state == 0}}'>
+          未支付
+      </text>
+      <text class='is-pay' wx:if='{{item.order_state == 1}}'>
+          已支付
+      </text>
+      <text class='try-use' wx:if='{{item.order_state == 2}}'>
+          试用用户
+      </text>
+    </view>
+  </view>
+  <view class='bottom-view'>
+    <text class='price'>¥:{{item.order_price/100}}元</text>
+    <view class='date-view'>
+      <text>订单时间:{{item.rodate}}</text>
+      <text>付款时间:{{(item.rpdate == '' || item.rpdate == null)?"暂无": item.rpdate}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--pages/read/read.wxml-->
+<view class='content-view'>
+  <view class='read-wrapper'>
+      <view class='read-info'>
+        <text class='phonetic-type'>{{item.level_three}}</text>
+        <text class='phonetic-value'>{{item.phonetic_name}}</text>
+      </view>
+      <view class='read-play'>
+        <image class='play-btn' src='{{play_img}}' bindtap='playPhonetic' data-mp3='{{item.pro_audio_file}}'></image>
+      </view>
+  </view>
+
+  <view class='read-hint'>
+    <text class='read-hint-txt'>{{item.pro_guide}}</text>
+  </view>
+
+    <view class='group2'>
+          <image class='learn-word' src='../../images/learn_word.png' bindtap='newApp'></image>
+          <navigator class="nav-view" wx:if='{{isUse}}' target="miniProgram" open-type="navigate" app-id="{{new_app_id}}" path="" extra-data="" version="release"></navigator>
+      </view>
+
+  <view class='next-step' bindtap='nextStep' data-item='{{item}}'>
+      <text class='next-step-txt'>下一步</text>
+  </view>
+</view>
