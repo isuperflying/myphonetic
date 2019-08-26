@@ -4,222 +4,241 @@
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">辅音</view>
   </view>
 </view>
-<scroll-view>
+
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
 
     <swiper-item>
-      <view class='group1'>
-        <view class='group1-name'>单元音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>前元音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist1}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <view class='group1'>
+          <view class='group1-name'>单元音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>前元音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist1}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
-          </view>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>中元音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist2}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>中元音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist2}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
-          </view>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>后元音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist3}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <!--双元音-->
-      <view class='group1'>
-        <view class='group1-name'>双元音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>
-              <text>开合\n双元音</text>
-            </view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist4}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
-            </view>
-          </view>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>
-              <text>集中\n双元音</text>
-            </view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist5}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>后元音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist3}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
 
-      <!-- 学单词 -->
-      <view class='group2'>
-          <image class='learn-word' src='../../images/learn_word.png' bindtap='newApp'></image>
-          <navigator class="nav-view" wx:if='{{isUse}}' target="miniProgram" open-type="navigate" app-id="{{new_app_id}}" path="" extra-data="" version="release"></navigator>
-      </view>
+        <!--双元音-->
+        <view class='group1'>
+          <view class='group1-name'>双元音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>
+                <text>开合\n双元音</text>
+              </view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist4}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>
+                <text>集中\n双元音</text>
+              </view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist5}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 学单词 -->
+        <view class='group2'>
+            <image class='learn-word' src='../../images/logo.png' bindtap='newApp'></image>
+            <text class='learn-word-txt'>趣味学单词</text>
+            <navigator class="nav-view" wx:if='{{isUse}}' target="miniProgram" open-type="navigate" app-id="{{new_app_id}}" path="" extra-data="" version="release"></navigator>
+        </view>
+     </scroll-view>
     </swiper-item>
 
     <!--辅音-->
 
     <swiper-item>
-      <!-- 学单词 -->
-      <view class='group2'>
-          <image class='learn-word' src='../../images/learn_word.png' bindtap='newApp'></image>
-          <navigator class="nav-view" wx:if='{{isUse}}' target="miniProgram" open-type="navigate" app-id="{{new_app_id}}" path="" extra-data="" version="release"></navigator>
-      </view>
-      
-      <!--爆破音-->
-      <view class='group1'>
-        <view class='group1-name'>爆破音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>清辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist6}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <!-- 学单词 -->
+        <view class='group2'>
+            <image class='learn-word' src='../../images/logo.png' bindtap='newApp'></image>
+             <text class='learn-word-txt'>趣味学单词</text>
+            <navigator class="nav-view" wx:if='{{isUse}}' target="miniProgram" open-type="navigate" app-id="{{new_app_id}}" path="" extra-data="" version="release"></navigator>
+        </view>
+        
+        <!--爆破音-->
+        <view class='group1'>
+          <view class='group1-name'>爆破音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>清辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist6}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
-          </view>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist7}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist7}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-      <!--摩擦音-->
-      <view class='group1'>
-        <view class='group1-name'>摩擦音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>清辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist8}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+        <!--摩擦音-->
+        <view class='group1'>
+          <view class='group1-name'>摩擦音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>清辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist8}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
-          </view>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist9}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
-            </view>
-          </view>
-        </view>
-      </view>
-      <!--破擦音-->
-      <view class='group1'>
-        <view class='group1-name'>破擦音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset'>
-            <view class='group1-subset-name'>清辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist10}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
-            </view>
-          </view>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist11}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist9}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
+        <!--破擦音-->
+        <view class='group1'>
+          <view class='group1-name'>破擦音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset'>
+              <view class='group1-subset-name'>清辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist10}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist11}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
 
-      <!--鼻音-->
-      <view class='group1'>
-        <view class='group1-name'>鼻音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist12}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+        <!--鼻音-->
+        <view class='group1'>
+          <view class='group1-name'>鼻音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist12}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-      <!--舌则音-->
-      <view class='group1'>
-        <view class='group1-name'>舌则音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist13}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+        <!--舌则音-->
+        <view class='group1'>
+          <view class='group1-name'>舌则音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist13}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
 
-      <!--半元音-->
-      <view class='group1'>
-        <view class='group1-name'>半元音</view>
-        <view class='group1-wrapper'>
-          <view class='group1-subset' style='border-bottom:0rpx;'>
-            <view class='group1-subset-name'>浊辅音</view>
-            <view class='group1-subset-list'>
-              <block wx:for='{{plist14}}' wx:key='id'>
-                <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
-                  {{item.phonetic_name}}
-                </view>
-              </block>
+        <!--半元音-->
+        <view class='group1'>
+          <view class='group1-name'>半元音</view>
+          <view class='group1-wrapper'>
+            <view class='group1-subset' style='border-bottom:0rpx;'>
+              <view class='group1-subset-name'>浊辅音</view>
+              <view class='group1-subset-list'>
+                <block wx:for='{{plist14}}' wx:key='id'>
+                  <view class='phonetic-item' bindtap='readPhonetic' data-item='{{item}}'>
+                    {{item.phonetic_name}}
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-
+      </scroll-view>
     </swiper-item>
   </swiper>
-</scroll-view>
+
+<!--从这里开始复制-->
+<view class="model {{isShowModel?'show':'close'}}" catchtouchmove="preventTouchMove">
+  <!--弹窗样式可自定义-->
+  <view class="model-pack">
+    <view class="model-title">{{ModelTitle}}</view>
+    <view class="model-content">{{ModelContent}}</view>
+    <view class="model-button">
+      <view data-modelid="{{ModelId}}" class="model-button-cancel {{isShowConfirm?'close':'show'}}" bindtap="cancel">继续使用</view>
+      <button open-type='share' data-modelid="{{ModelId}}" class="model-button-confirm {{isShowConfirm?'close':'show'}}" bindtap='confirm'>分享好友</button>
+      <view data-modelid="{{ModelId}}" class="confirm {{isShowConfirm?'show':'close'}}" bindtap="confirm">确定</view>
+    </view>
+  </view>
+</view>
+<!--到这里结束-->

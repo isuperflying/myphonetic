@@ -20,7 +20,12 @@ let plist14 = [];
 Page({
   data: {
     currentTab: 0,
-    new_app_id:'wx572fce5031dcef34'
+    new_app_id:'wx572fce5031dcef34',
+    isShowModel: false,//控制弹窗是否显示，默认不显示
+    isShowConfirm: false,//是否只显示确定按钮，默认不是
+    ModelId: 0,//弹窗id
+    ModelTitle: '',//弹窗标题
+    ModelContent: '',//弹窗文字内容
   },
   clearData:function(){
     plist1 = [];
@@ -38,7 +43,7 @@ Page({
     plist13 = [];
     plist14 = [];
   },
-
+  
   compareVersion: function (v1, v2) {
     v1 = v1.split('.')
     v2 = v2.split('.')
@@ -154,7 +159,8 @@ Page({
         console.log('sdk version--->' + res.SDKVersion)
         var result = that.compareVersion(res.SDKVersion, '2.0.7')
         that.setData({
-          isUse: result >= 0 ? true : false
+          isUse: result >= 0 ? true : false,
+          clientHeight: res.windowHeight
         })
       },
     })
@@ -192,20 +198,77 @@ Page({
   },
   readPhonetic:function (e){
     //console.log(e.currentTarget.dataset.item)
-    var item = JSON.stringify(e.currentTarget.dataset.item)
-    wx.navigateTo({
-      url: '../read/read?item=' + item,
-    })
+    
+    if (app.globalData.useCount % 6 == 0){
+      this.showModel({
+        ModelId: 0,
+        ModelTitle: '分享好友',
+        ModelContent: '如果你觉得音标学习很有用，请分享给你的好友一起学习吧！'
+      })
+    }else{
+      var item = JSON.stringify(e.currentTarget.dataset.item)
+      wx.navigateTo({
+        url: '../read/read?item=' + item,
+      })
+
+      app.globalData.useCount = app.globalData.useCount + 1
+    }
+
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '这是一个模态弹窗',
+    //   success(res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var that = this
     return {
       title: '英语音标快速学习，快来试试吧!',
       path: '/pages/phonetic/phonetic',
-      imageUrl: '../../images/share_icon.png'
+      imageUrl: '../../images/share_icon.png',
+      success: function (res) {
+        that.setData({
+          isShowModel: false
+        })
+      }
     }
   },
+
+  //调用模态弹窗
+  showModel: function (e) {
+    //将传过来的标题和内容展示到弹窗上
+    this.setData({
+      isShowModel: true,
+      ModelId: e.ModelId,
+      ModelTitle: e.ModelTitle,
+      ModelContent: e.ModelContent
+    })
+  },
+  //取消事件
+  cancel: function (e) {
+    app.globalData.useCount = app.globalData.useCount + 1
+    //关闭模态弹窗
+    this.setData({
+      isShowModel: false
+    })
+  },
+  //确定事件
+  confirm: function (e) {
+    app.globalData.useCount = app.globalData.useCount + 1
+    //关闭模态弹窗
+    this.setData({
+      isShowModel: false
+    })
+  }
 })
