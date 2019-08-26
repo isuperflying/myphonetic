@@ -4,16 +4,24 @@ page {
   background: #6ad6ff;
 }
 
-scroll-view {
-  width: 100%;
-  height: 150%;
-  margin-bottom: 50rpx;
-}
-
 swiper {
   width: 100%;
   height: 100%;
   margin-top: 130rpx;
+}
+
+scroll-view {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+swiper-item{
+  width: 100%;
+  height: 100%;
 }
 
 .tab-wrapper {
@@ -128,26 +136,101 @@ swiper {
 }
 
 .group2 {
-  width: 95%;
+  width: 360rpx;
+  height: 360rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 3%;
-  background: #adedff;
+  background: #ffffff;
   margin-bottom: 24rpx;
   position: relative;
+  border-radius: 12rpx;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .learn-word {
-  width: 750rpx;
-  height: 260rpx;
+  width: 256rpx;
+  height: 256rpx;
 }
 
+.learn-word-txt {
+  color: #6ad6ff;
+  font-size: 26px;
+  font-weight: 600;
+}
 .nav-view {
-  width: 750rpx;
-  height: 260rpx;
+ width: 360rpx;
+  height: 360rpx;
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.model{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);/*蒙层的透明度可以自定义*/
+  z-index: 9999999999;
+}
+.show{
+  display: block;
+}
+.close{
+  display: none;
+}
+/*下方可以自定义*/
+.model-pack{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50%;
+  background: #fff;
+  border-radius: 8px;
+}
+.model-title{
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.model-content{
+  font-size: 0.8rem;
+  padding: 0.3rem 1.2rem;
+  height: 120rpx;
+}
+.model-button{
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  text-align: center;
+}
+.model-button-cancel{
+  float: left;
+  width: 50%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+  color: #aaa;
+}
+.model-button-confirm{
+  width: 50%;
+  float: left;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  color: #2ec24b;
+}
+.confirm{
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+button::after{
+  border: 0;
 }
